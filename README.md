@@ -6,7 +6,7 @@ Requirements
 
 V1:
 
-[]a way to get computer choice
+[X]a way to get computer choice
 []a way to get human choice
 []a way to store their scores
 []a way to play a single round
