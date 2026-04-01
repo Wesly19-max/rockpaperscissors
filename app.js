@@ -13,16 +13,39 @@ function getComputerChoice() {
 
 //[]a way to get human choice
 function getHumanChoice() {
-  let userChoice = prompt("Rock,Paper,Scissors?");
-  return userChoice;
+  let humanChoice = prompt("Rock,Paper,Scissors?");
+  return humanChoice.toLowerCase();
 }
 
 
 //[]a way to store their scores
 let humanScore =0;
 let computerScore =0;
+
+
 //[]a way to play a single round
-function playRound() {
+function playRound(humanChoice,computerChoice) {
+  if ((humanChoice=="rock" && computerChoice=="scissors")||
+      (humanChoice=="paper" && computerChoice=="rock")||
+      (humanChoice=="scissors" && computerChoice=="paper")) 
+  {
+    humanScore ++;
+    console.log(`You won! ${humanChoice} beats ${computerChoice}`)
+  }
+  else if (humanChoice == computerChoice)
+  {
+    console.log("It's a tie!")
+  }else {
+    computerScore++;
+    console.log(`You lose! ${computerChoice} beats ${humanChoice}`)
+  }
 
 }
+
+
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection,computerSelection);
 //[]a way to play multiple rounds
