@@ -19,6 +19,12 @@ function playGame() {
   let humanScore =0;
   let computerScore =0;
 
+  const yourScoreBoard = document.querySelector(".your-score");
+  const computerScoreBoard = document.querySelector(".computer-score");
+
+
+
+
 
   //a way to play a single round
   function playRound(humanChoice,computerChoice) {
@@ -39,7 +45,9 @@ function playGame() {
 
   }
 
-    
+      //display score board
+  yourScoreBoard.textContent = `Your score: ${humanScore}`;
+  computerScoreBoard.textContent = `Computer Score : ${computerScore}`
     //for each button
     const buttons = document.querySelectorAll("button");
     
@@ -50,7 +58,7 @@ function playGame() {
         playRound(choice,getComputerChoice());
       })
     }
-    playRound(getHumanChoice(),getComputerChoice());
+    
  
   
   //declare the winner
