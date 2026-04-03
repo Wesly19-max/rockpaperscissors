@@ -19,10 +19,12 @@ function playGame() {
   let humanScore =0;
   let computerScore =0;
 
+  //store references of results div
   const yourScoreBoard = document.querySelector(".your-score");
   const computerScoreBoard = document.querySelector(".computer-score");
 
   const roundMessage = document.querySelector(".round-message");
+  const gameMessage = document.querySelector(".game-message")
   //a way to play a single round
   function playRound(humanChoice,computerChoice) {
     if ((humanChoice=="rock" && computerChoice=="scissors")||
@@ -43,7 +45,7 @@ function playGame() {
 
   }
 
-        //display score board
+    //display score board
     yourScoreBoard.textContent = `Your score: ${humanScore}`;
     computerScoreBoard.textContent = `Computer Score : ${computerScore}`
     //for each button
@@ -61,11 +63,11 @@ function playGame() {
   
   //declare the winner
   if (humanScore > computerScore) {
-    console.log("You won!")
+    gameMessage.textContent = "You won!"
   }else if (humanScore<computerScore) {
-    console.log("You lost!")
+    gameMessage.textContent = "You lost!"
   }else {
-    console.log("It's a tie!")
+    gameMessage.textContent = "It's a tie!"
   }
   
 }
