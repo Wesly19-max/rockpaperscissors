@@ -25,14 +25,18 @@ function playGame() {
 
   const roundMessage = document.querySelector(".round-message");
   const gameMessage = document.querySelector(".game-message")
+
+  computerScoreBoard.textContent = `Computer Score : ${computerScore}`
+  yourScoreBoard.textContent = `Your score: ${humanScore}`;
   //a way to play a single round
+  
   function playRound(humanChoice,computerChoice) {
     if ((humanChoice=="rock" && computerChoice=="scissors")||
         (humanChoice=="paper" && computerChoice=="rock")||
         (humanChoice=="scissors" && computerChoice=="paper")) 
     {
       humanScore ++;
-      
+      yourScoreBoard.textContent = `Your score: ${humanScore}`;
       roundMessage.textContent= `You won! ${humanChoice} beats ${computerChoice}`
     }
     else if (humanChoice == computerChoice)
@@ -40,14 +44,15 @@ function playGame() {
       roundMessage.textContent = "It's a tie!"
     }else {
       computerScore++;
+      computerScoreBoard.textContent = `Computer Score : ${computerScore}`
       roundMessage.textContent = `You lose! ${computerChoice} beats ${humanChoice}`
     }
 
   }
 
     //display score board
-    yourScoreBoard.textContent = `Your score: ${humanScore}`;
-    computerScoreBoard.textContent = `Computer Score : ${computerScore}`
+    
+    
     //for each button
     const buttons = document.querySelectorAll("button");
     
@@ -62,12 +67,10 @@ function playGame() {
  
   
   //declare the winner
-  if (humanScore > computerScore) {
+  if (humanScore ==5) {
     gameMessage.textContent = "You won!"
-  }else if (humanScore<computerScore) {
+  }else if (humanScore==5) {
     gameMessage.textContent = "You lost!"
-  }else {
-    gameMessage.textContent = "It's a tie!"
   }
   
 }
