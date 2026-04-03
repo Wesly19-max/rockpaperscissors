@@ -48,29 +48,40 @@ function playGame() {
       roundMessage.textContent = `You lose! ${computerChoice} beats ${humanChoice}`
     }
 
-  }
-
-    //display score board
-    
-    
-    //for each button
-    const buttons = document.querySelectorAll("button");
-    
-    for (let i=0;i<buttons.length;i++) {
-      //add an event listener that chooses user selection
-      buttons[i].addEventListener("click",() => {
-        let choice = buttons[i].textContent;
-        playRound(choice,getComputerChoice());
-      })
+    //check if game ends already
+    if (isGameOver()) {
+      let winner = humanScore == 5 ? "You won!" : "Computer won";
+      gameMessage.textContent = `${winner}`;
+      
+      //freeze all buttons after winner is declared
+      for (let i=0;i<buttons.length;i++) {
+        buttons[i].disabled = true;
+      }
     }
+  }
+    
+    
+  //for each button
+  const buttons = document.querySelectorAll("button");
+    
+  for (let i=0;i<buttons.length;i++) {
+    //add an event listener that chooses user selection
+    buttons[i].addEventListener("click",() => {
+      let choice = buttons[i].textContent;
+      playRound(choice,getComputerChoice());
+    })
+  }
     
  
   
-  //declare the winner
-  if (humanScore ==5) {
-    gameMessage.textContent = "You won!"
-  }else if (humanScore==5) {
-    gameMessage.textContent = "You lost!"
+  //declare the winner when one of them won 5 times
+
+  let isGameOver = (score) => {
+    if (humanScore==5 || computerScore==5) {
+      return true;
+    }else {
+      return false;
+    }
   }
   
 }
