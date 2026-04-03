@@ -28,6 +28,7 @@ function playGame() {
 
   computerScoreBoard.textContent = `Computer Score : ${computerScore}`
   yourScoreBoard.textContent = `Your score: ${humanScore}`;
+  
   //a way to play a single round
   
   function playRound(humanChoice,computerChoice) {
@@ -48,7 +49,7 @@ function playGame() {
       roundMessage.textContent = `You lose! ${computerChoice} beats ${humanChoice}`
     }
 
-    //check if game ends already
+    //declare winner
     if (isGameOver()) {
       let winner = humanScore == 5 ? "You won!" : "Computer won";
       gameMessage.textContent = `${winner}`;
@@ -74,7 +75,7 @@ function playGame() {
     
  
   
-  //declare the winner when one of them won 5 times
+  //check if game is over
 
   let isGameOver = (score) => {
     if (humanScore==5 || computerScore==5) {
@@ -86,5 +87,4 @@ function playGame() {
   
 }
 
-//play a single game
 playGame();
