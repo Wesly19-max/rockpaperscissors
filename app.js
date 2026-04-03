@@ -12,12 +12,6 @@ function getComputerChoice() {
 }
 
 
-function getHumanChoice() {
-  let humanChoice = prompt("Rock,Paper,Scissors?");
-  return humanChoice.toLowerCase();
-}
-
-
 //a way to play multiple rounds
 function playGame() {
 
