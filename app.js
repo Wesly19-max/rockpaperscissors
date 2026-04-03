@@ -1,4 +1,4 @@
-//[]a way to get computer choice
+
 function getComputerChoice() {
   let numberChoice = Math.floor(Math.random() * 3)+1;
   
@@ -11,7 +11,7 @@ function getComputerChoice() {
   }
 }
 
-//[]a way to get human choice
+
 function getHumanChoice() {
   let humanChoice = prompt("Rock,Paper,Scissors?");
   return humanChoice.toLowerCase();
@@ -46,10 +46,18 @@ function playGame() {
   }
 
     
-  //calls playRound function 5 times
-  for (let i =0;i<5;i++) {
+    //for each button
+    const buttons = document.querySelectorAll("button");
+    
+    for (let i=0;i<buttons.length;i++) {
+      //add an event listener that chooses user selection
+      buttons[i].addEventListener("click",() => {
+        let choice = buttons[i].textContent;
+        playRound(choice,getComputerChoice());
+      })
+    }
     playRound(getHumanChoice(),getComputerChoice());
-  }
+ 
   
   //declare the winner
   if (humanScore > computerScore) {
@@ -62,5 +70,5 @@ function playGame() {
   
 }
 
-//play a single game (5 rounds)
+//play a single game
 playGame();
